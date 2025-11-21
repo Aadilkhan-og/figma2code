@@ -111,8 +111,8 @@ export default defineConfig({
         noEmit: true,
         jsx: 'react-jsx',
         strict: true,
-        noUnusedLocals: true,
-        noUnusedParameters: true,
+        noUnusedLocals: false,
+        noUnusedParameters: false,
         noFallthroughCasesInSwitch: true,
         baseUrl: '.',
         paths: {

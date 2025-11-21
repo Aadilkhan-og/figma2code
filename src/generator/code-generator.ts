@@ -864,7 +864,7 @@ interface IconProps {
  * Generic Icon component - placeholder for icons detected in Figma
  * Replace with your preferred icon library (lucide-react, heroicons, etc.)
  */
-export default function Icon({ name, size = 'md', className = '', onClick }: IconProps) {
+export default function Icon({ size = 'md', className = '', onClick }: IconProps) {
   const sizes = {
     sm: 'w-4 h-4',
     md: 'w-6 h-6',
