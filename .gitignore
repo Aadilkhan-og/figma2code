@@ -28,11 +28,11 @@ yarn-error.log*
 # Test coverage
 coverage/
 
-# Sandbox outputs
-sandbox/
+# Sandbox outputs (runtime generated, not source code)
+/.sandbox/
+/sandbox-output/
 output/
 generated/
-.sandbox/
 
 # Figma cache
 .figma-cache/
