@@ -329,6 +329,7 @@ export default App
 
       this.devServer = spawn('npm', ['run', 'dev', '--', '--port', port.toString()], {
         cwd: this.workDir,
+        shell: true,
         stdio: ['ignore', 'pipe', 'pipe'],
         env: { ...process.env, FORCE_COLOR: '0' },
       });
