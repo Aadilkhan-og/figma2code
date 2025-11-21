@@ -2,6 +2,6 @@
  * Type Definitions Index
  */
 
-export * from './ir';
-export * from './figma';
-export * from './agent';
+export * from './ir.js';
+export * from './figma.js';
+export * from './agent.js';

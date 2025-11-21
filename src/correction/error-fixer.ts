@@ -6,7 +6,7 @@
 import OpenAI from 'openai';
 import { promises as fs } from 'fs';
 import path from 'path';
-import type { BuildError, AgentConfig, GeneratedFile } from '../types/agent';
+import type { BuildError, AgentConfig, GeneratedFile } from '../types/agent.js';
 
 export class ErrorFixer {
   private openai: OpenAI | null = null;

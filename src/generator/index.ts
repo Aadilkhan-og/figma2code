@@ -2,7 +2,7 @@
  * Code Generator Module Exports
  */
 
-export { CodeGenerator } from './code-generator';
-export type { CodeGeneratorOptions } from './code-generator';
+export { CodeGenerator } from './code-generator.js';
+export type { CodeGeneratorOptions } from './code-generator.js';
 
-export { TailwindGenerator } from './tailwind';
+export { TailwindGenerator } from './tailwind.js';

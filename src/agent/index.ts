@@ -2,5 +2,5 @@
  * Agent Module Exports
  */
 
-export { AgentOrchestrator } from './orchestrator';
-export type { AgentOptions } from './orchestrator';
+export { AgentOrchestrator } from './orchestrator.js';
+export type { AgentOptions } from './orchestrator.js';

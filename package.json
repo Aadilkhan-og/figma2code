@@ -7,8 +7,8 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
-    "dev": "tsx src/index.ts",
-    "agent": "tsx src/cli.ts",
+    "dev": "node --import tsx src/index.ts",
+    "agent": "node --import tsx src/cli.ts",
     "test": "vitest",
     "lint": "eslint src --ext .ts,.tsx",
     "format": "prettier --write src/**/*.ts"

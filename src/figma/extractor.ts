@@ -15,7 +15,7 @@ import type {
   FigmaEffect,
   FigmaTypeStyle,
   FigmaFile,
-} from '../types/figma';
+} from '../types/figma.js';
 import type {
   IRDocument,
   IRNode,
@@ -27,8 +27,8 @@ import type {
   ShadowToken,
   BorderToken,
   SpacingToken,
-} from '../types/ir';
-import { FigmaClient } from './client';
+} from '../types/ir.js';
+import { FigmaClient } from './client.js';
 
 export interface ExtractionOptions {
   includeHidden?: boolean;

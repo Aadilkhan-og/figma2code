@@ -9,7 +9,7 @@ import type {
   FigmaNodesResponse,
   FigmaImageResponse,
   FigmaNode,
-} from '../types/figma';
+} from '../types/figma.js';
 
 const FIGMA_API_BASE = 'https://api.figma.com/v1';
 

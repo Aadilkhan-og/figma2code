@@ -4,9 +4,9 @@
  */
 
 import OpenAI from 'openai';
-import type { IRDocument, IRNode } from '../types/ir';
-import type { GeneratedFile, GeneratedCodeBundle, AgentConfig } from '../types/agent';
-import { TailwindGenerator } from './tailwind';
+import type { IRDocument, IRNode } from '../types/ir.js';
+import type { GeneratedFile, GeneratedCodeBundle, AgentConfig } from '../types/agent.js';
+import { TailwindGenerator } from './tailwind.js';
 
 export interface CodeGeneratorOptions {
   useOpenAI?: boolean;
@@ -826,11 +826,11 @@ export function Drawer({ open, onClose, children, position = 'right', className 
       },
       {
         path: 'src/components/ui/index.ts',
-        content: `export * from './Button';
-export * from './Input';
-export * from './Card';
-export * from './Display';
-export * from './Modal';
+        content: `export * from './Button.js';
+export * from './Input.js';
+export * from './Card.js';
+export * from './Display.js';
+export * from './Modal.js';
 `,
         type: 'component',
       },
