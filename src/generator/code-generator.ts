@@ -98,7 +98,11 @@ Component imports available:
 - Input, Textarea from '@/components/ui/Input'
 - Card from '@/components/ui/Card'
 - Avatar, Badge, Tag from '@/components/ui/Display'
-- Modal, Drawer from '@/components/ui/Modal'`,
+- Modal, Drawer from '@/components/ui/Modal'
+- Icon from '@/components/ui/Icon'
+- Navbar from '@/components/ui/Navbar'
+
+IMPORTANT: Use exact import paths shown above. Do NOT create nested folder structures like '@/components/ui/icon/Icon'.`,
         },
         {
           role: 'user',
@@ -329,6 +333,15 @@ ${spaces}</${tag}>`;
     const modalImports = [...customComponents].filter(c => modalComponents.includes(c));
     if (modalImports.length) {
       importLines.push(`import { ${modalImports.join(', ')} } from '@/components/ui/Modal';`);
+    }
+
+    // Handle Icon and Navbar as default exports
+    if (customComponents.has('Icon')) {
+      importLines.push(`import Icon from '@/components/ui/Icon';`);
+    }
+
+    if (customComponents.has('Navbar')) {
+      importLines.push(`import Navbar from '@/components/ui/Navbar';`);
     }
 
     return importLines.join('\n');
@@ -831,6 +844,137 @@ export * from './Input.js';
 export * from './Card.js';
 export * from './Display.js';
 export * from './Modal.js';
+export { default as Icon } from './Icon.js';
+export { default as Navbar } from './Navbar.js';
+`,
+        type: 'component',
+      },
+      {
+        path: 'src/components/ui/Icon.tsx',
+        content: `import React from 'react';
+
+interface IconProps {
+  name?: string;
+  size?: 'sm' | 'md' | 'lg' | 'xl';
+  className?: string;
+  onClick?: () => void;
+}
+
+/**
+ * Generic Icon component - placeholder for icons detected in Figma
+ * Replace with your preferred icon library (lucide-react, heroicons, etc.)
+ */
+export default function Icon({ name, size = 'md', className = '', onClick }: IconProps) {
+  const sizes = {
+    sm: 'w-4 h-4',
+    md: 'w-6 h-6',
+    lg: 'w-8 h-8',
+    xl: 'w-12 h-12',
+  };
+
+  return (
+    <span
+      className={\`inline-flex items-center justify-center \${sizes[size]} \${className}\`}
+      onClick={onClick}
+      role={onClick ? 'button' : undefined}
+    >
+      {/* Placeholder - replace with actual icon implementation */}
+      <svg
+        className="w-full h-full"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect x="3" y="3" width="18" height="18" rx="2" strokeWidth="2" />
+      </svg>
+    </span>
+  );
+}
+`,
+        type: 'component',
+      },
+      {
+        path: 'src/components/ui/Navbar.tsx',
+        content: `import React from 'react';
+
+interface NavbarProps {
+  children?: React.ReactNode;
+  className?: string;
+  fixed?: boolean;
+  transparent?: boolean;
+}
+
+/**
+ * Navbar component for navigation headers
+ */
+export default function Navbar({ children, className = '', fixed = false, transparent = false }: NavbarProps) {
+  const baseClasses = 'w-full';
+  const positionClasses = fixed ? 'fixed top-0 left-0 right-0 z-50' : 'relative';
+  const bgClasses = transparent ? 'bg-transparent' : 'bg-white';
+
+  return (
+    <nav className={\`\${baseClasses} \${positionClasses} \${bgClasses} \${className}\`}>
+      {children}
+    </nav>
+  );
+}
+
+interface NavbarBrandProps {
+  children?: React.ReactNode;
+  className?: string;
+  href?: string;
+}
+
+export function NavbarBrand({ children, className = '', href = '/' }: NavbarBrandProps) {
+  return (
+    <a href={href} className={\`flex items-center gap-2 font-semibold text-lg \${className}\`}>
+      {children}
+    </a>
+  );
+}
+
+interface NavbarLinksProps {
+  children?: React.ReactNode;
+  className?: string;
+}
+
+export function NavbarLinks({ children, className = '' }: NavbarLinksProps) {
+  return (
+    <div className={\`flex items-center gap-6 \${className}\`}>
+      {children}
+    </div>
+  );
+}
+
+interface NavbarLinkProps {
+  children?: React.ReactNode;
+  className?: string;
+  href?: string;
+  active?: boolean;
+}
+
+export function NavbarLink({ children, className = '', href = '#', active = false }: NavbarLinkProps) {
+  const activeClasses = active ? 'text-blue-600 font-medium' : 'text-gray-600 hover:text-gray-900';
+  return (
+    <a href={href} className={\`text-sm transition-colors \${activeClasses} \${className}\`}>
+      {children}
+    </a>
+  );
+}
+
+interface NavbarActionsProps {
+  children?: React.ReactNode;
+  className?: string;
+}
+
+export function NavbarActions({ children, className = '' }: NavbarActionsProps) {
+  return (
+    <div className={\`flex items-center gap-4 \${className}\`}>
+      {children}
+    </div>
+  );
+}
 `,
         type: 'component',
       },
