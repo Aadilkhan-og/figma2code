@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ES2022",
     "module": "ESNext",
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "lib": ["ES2022"],
     "outDir": "./dist",
     "rootDir": "./src",
@@ -27,5 +27,9 @@
     }
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist", "sandbox"]
+  "exclude": ["node_modules", "dist", "sandbox"],
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
+  }
 }

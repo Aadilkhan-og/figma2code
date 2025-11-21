@@ -2,7 +2,7 @@
  * Agent System Type Definitions
  */
 
-import type { IRDocument } from './ir.js';
+import type { IRDocument } from './ir';
 
 // Build Status Types
 export type BuildStatus = 'SUCCESS' | 'FAILED' | 'PENDING' | 'IN_PROGRESS';

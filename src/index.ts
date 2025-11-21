@@ -11,7 +11,7 @@ export type {
   Style,
   AutoLayout,
   BoundingBox,
-} from './types/ir.js';
+} from './types/ir';
 
 export type {
   AgentConfig,
@@ -26,41 +26,41 @@ export type {
   VisualDifference,
   CorrectionAction,
   ComponentMapping,
-} from './types/agent.js';
+} from './types/agent';
 
 export type {
   FigmaFile,
   FigmaNode,
   FigmaFrameNode,
   FigmaTextNode,
-} from './types/figma.js';
+} from './types/figma';
 
 // Export modules
-export { AgentOrchestrator } from './agent/index.js';
-export type { AgentOptions } from './agent/index.js';
+export { AgentOrchestrator } from './agent/index';
+export type { AgentOptions } from './agent/index';
 
-export { FigmaClient, FigmaExtractor } from './figma/index.js';
-export type { FigmaClientConfig, ExtractionOptions } from './figma/index.js';
+export { FigmaClient, FigmaExtractor } from './figma/index';
+export type { FigmaClientConfig, ExtractionOptions } from './figma/index';
 
-export { ComponentMapper, DEFAULT_MAPPING_RULES } from './mapping/index.js';
+export { ComponentMapper, DEFAULT_MAPPING_RULES } from './mapping/index';
 
-export { CodeGenerator, TailwindGenerator } from './generator/index.js';
-export type { CodeGeneratorOptions } from './generator/index.js';
+export { CodeGenerator, TailwindGenerator } from './generator/index';
+export type { CodeGeneratorOptions } from './generator/index';
 
-export { SandboxExecutor } from './sandbox/index.js';
-export type { SandboxOptions } from './sandbox/index.js';
+export { SandboxExecutor } from './sandbox/index';
+export type { SandboxOptions } from './sandbox/index';
 
-export { VisualDiffEngine } from './visual/index.js';
-export type { DiffEngineOptions } from './visual/index.js';
+export { VisualDiffEngine } from './visual/index';
+export type { DiffEngineOptions } from './visual/index';
 
-export { ErrorFixer, VisualCorrector } from './correction/index.js';
+export { ErrorFixer, VisualCorrector } from './correction/index';
 
 /**
  * Quick conversion function for programmatic use
  */
 export async function convert(
   figmaUrl: string,
-  config: Partial<import('./types/agent.js').AgentConfig> & {
+  config: Partial<AgentConfig> & {
     figmaAccessToken: string;
   },
   options?: {
@@ -68,8 +68,8 @@ export async function convert(
     skipBuild?: boolean;
     skipVisualComparison?: boolean;
   }
-): Promise<import('./types/agent.js').AgentOutput> {
-  const fullConfig: import('./types/agent.js').AgentConfig = {
+): Promise<AgentOutput> {
+  const fullConfig: AgentConfig = {
     figmaAccessToken: config.figmaAccessToken,
     openaiApiKey: config.openaiApiKey || '',
     openaiModel: config.openaiModel || 'gpt-4-turbo-preview',

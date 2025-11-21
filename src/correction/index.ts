@@ -2,5 +2,5 @@
  * Correction Module Exports
  */
 
-export { ErrorFixer } from './error-fixer.js';
-export { VisualCorrector } from './visual-corrector.js';
+export { ErrorFixer } from './error-fixer';
+export { VisualCorrector } from './visual-corrector';

@@ -4,8 +4,8 @@
  */
 
 import OpenAI from 'openai';
-import type { VisualDifference, CorrectionAction, AgentConfig, GeneratedFile } from '../types/agent.js';
-import type { IRDocument, IRNode } from '../types/ir.js';
+import type { VisualDifference, CorrectionAction, AgentConfig, GeneratedFile } from '../types/agent';
+import type { IRDocument, IRNode } from '../types/ir';
 
 export class VisualCorrector {
   private openai: OpenAI | null = null;

@@ -3,8 +3,8 @@
  * Maps Figma UI elements to React components
  */
 
-import type { IRNode, ComponentType } from '../types/ir.js';
-import type { ComponentMapping, ComponentMappingRule } from '../types/agent.js';
+import type { IRNode, ComponentType } from '../types/ir';
+import type { ComponentMapping, ComponentMappingRule } from '../types/agent';
 
 /**
  * Default component mapping rules

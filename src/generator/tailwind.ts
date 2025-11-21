@@ -3,7 +3,7 @@
  * Converts IR styles to TailwindCSS classes
  */
 
-import type { IRNode, Style, AutoLayout, BoundingBox, TypographyToken } from '../types/ir.js';
+import type { IRNode, Style, AutoLayout, BoundingBox, TypographyToken } from '../types/ir';
 
 /**
  * Tailwind class generator for IR nodes

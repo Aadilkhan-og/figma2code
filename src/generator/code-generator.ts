@@ -4,9 +4,9 @@
  */
 
 import OpenAI from 'openai';
-import type { IRDocument, IRNode } from '../types/ir.js';
-import type { GeneratedFile, GeneratedCodeBundle, AgentConfig } from '../types/agent.js';
-import { TailwindGenerator } from './tailwind.js';
+import type { IRDocument, IRNode } from '../types/ir';
+import type { GeneratedFile, GeneratedCodeBundle, AgentConfig } from '../types/agent';
+import { TailwindGenerator } from './tailwind';
 
 export interface CodeGeneratorOptions {
   useOpenAI?: boolean;

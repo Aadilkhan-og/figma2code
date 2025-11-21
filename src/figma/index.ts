@@ -2,8 +2,8 @@
  * Figma Module Exports
  */
 
-export { FigmaClient } from './client.js';
-export type { FigmaClientConfig } from './client.js';
+export { FigmaClient } from './client';
+export type { FigmaClientConfig } from './client';
 
-export { FigmaExtractor } from './extractor.js';
-export type { ExtractionOptions } from './extractor.js';
+export { FigmaExtractor } from './extractor';
+export type { ExtractionOptions } from './extractor';

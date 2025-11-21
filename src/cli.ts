@@ -11,8 +11,8 @@ import chalk from 'chalk';
 import ora from 'ora';
 import { promises as fs } from 'fs';
 import path from 'path';
-import type { AgentConfig, AgentEvent } from './types/agent.js';
-import { AgentOrchestrator } from './agent/index.js';
+import type { AgentConfig, AgentEvent } from './types/agent';
+import { AgentOrchestrator } from './agent/index';
 
 // Load environment variables
 dotenv.config();
@@ -127,7 +127,7 @@ program
       }
 
       // Import modules
-      const { FigmaClient, FigmaExtractor } = await import('./figma/index.js');
+      const { FigmaClient, FigmaExtractor } = await import('./figma/index');
 
       const client = new FigmaClient({ accessToken: figmaToken });
       const fileKey = FigmaClient.extractFileKey(figmaUrl);
@@ -185,8 +185,8 @@ program
       };
 
       // Import and run generator
-      const { CodeGenerator } = await import('./generator/index.js');
-      const { ComponentMapper } = await import('./mapping/index.js');
+      const { CodeGenerator } = await import('./generator/index');
+      const { ComponentMapper } = await import('./mapping/index');
 
       const mapper = new ComponentMapper();
       const generator = new CodeGenerator(config);
@@ -227,7 +227,7 @@ program
         process.exit(1);
       }
 
-      const { FigmaClient } = await import('./figma/index.js');
+      const { FigmaClient } = await import('./figma/index');
       const client = new FigmaClient({ accessToken: figmaToken });
       const connected = await client.testConnection();
 

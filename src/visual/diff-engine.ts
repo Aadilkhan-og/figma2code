@@ -8,8 +8,8 @@ import { PNG } from 'pngjs';
 import pixelmatch from 'pixelmatch';
 import { promises as fs } from 'fs';
 import path from 'path';
-import type { VisualComparisonResult, VisualDifference, AgentConfig } from '../types/agent.js';
-import type { IRDocument, IRNode, BoundingBox } from '../types/ir.js';
+import type { VisualComparisonResult, VisualDifference, AgentConfig } from '../types/agent';
+import type { IRDocument, IRNode, BoundingBox } from '../types/ir';
 
 export interface DiffEngineOptions {
   threshold?: number;

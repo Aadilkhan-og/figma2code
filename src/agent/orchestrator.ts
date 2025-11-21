@@ -17,14 +17,14 @@ import type {
   GeneratedCodeBundle,
   BuildResult,
   VisualComparisonResult,
-} from '../types/agent.js';
-import type { IRDocument } from '../types/ir.js';
-import { FigmaClient, FigmaExtractor } from '../figma/index.js';
-import { ComponentMapper } from '../mapping/index.js';
-import { CodeGenerator } from '../generator/index.js';
-import { SandboxExecutor } from '../sandbox/index.js';
-import { VisualDiffEngine } from '../visual/index.js';
-import { ErrorFixer, VisualCorrector } from '../correction/index.js';
+} from '../types/agent';
+import type { IRDocument } from '../types/ir';
+import { FigmaClient, FigmaExtractor } from '../figma/index';
+import { ComponentMapper } from '../mapping/index';
+import { CodeGenerator } from '../generator/index';
+import { SandboxExecutor } from '../sandbox/index';
+import { VisualDiffEngine } from '../visual/index';
+import { ErrorFixer, VisualCorrector } from '../correction/index';
 
 export interface AgentOptions {
   figmaUrl: string;
