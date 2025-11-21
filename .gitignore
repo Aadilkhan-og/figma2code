@@ -1,0 +1,47 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Test coverage
+coverage/
+
+# Sandbox outputs
+sandbox/
+output/
+generated/
+.sandbox/
+
+# Figma cache
+.figma-cache/
+
+# Screenshots and diffs
+screenshots/
+diffs/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
