@@ -55,6 +55,10 @@ export type { DiffEngineOptions } from './visual/index.js';
 
 export { ErrorFixer, VisualCorrector } from './correction/index.js';
 
+// Export POSTDEV API
+export { generateFromFigmaLink, healthCheck } from './api/index.js';
+export type { PostDevOptions, PostDevResult, PostDevError, ProgressEvent } from './api/index.js';
+
 /**
  * Quick conversion function for programmatic use
  */

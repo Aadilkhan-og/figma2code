@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POSTDEV - Figma to Code</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .container {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      max-width: 600px;
+      width: 100%;
+      padding: 40px;
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      color: #666;
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: border-color 0.3s;
+    }
+
+    input[type="text"]:focus {
+      outline: none;
+      border-color: #667eea;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    button:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+    }
+
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .status {
+      margin-top: 30px;
+      padding: 20px;
+      background: #f5f5f5;
+      border-radius: 8px;
+      display: none;
+    }
+
+    .status.active {
+      display: block;
+    }
+
+    .status h3 {
+      font-size: 18px;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 8px;
+      background: #e0e0e0;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 15px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+      transition: width 0.3s ease;
+      width: 0%;
+    }
+
+    .phase-message {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .metadata {
+      font-size: 12px;
+      color: #999;
+    }
+
+    .download-btn {
+      margin-top: 15px;
+      background: #10b981;
+    }
+
+    .download-btn:hover {
+      box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+    }
+
+    .error {
+      background: #fee;
+      color: #c00;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    .example {
+      font-size: 12px;
+      color: #999;
+      margin-top: 5px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .badge.pending { background: #fef3c7; color: #92400e; }
+    .badge.processing { background: #dbeafe; color: #1e40af; }
+    .badge.complete { background: #d1fae5; color: #065f46; }
+    .badge.failed { background: #fee2e2; color: #991b1b; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <h1>POSTDEV</h1>
+      <p class="subtitle">Transform Figma designs into production-ready React code</p>
+    </div>
+
+    <form id="convertForm">
+      <div class="input-group">
+        <label for="figmaUrl">Figma URL</label>
+        <input
+          type="text"
+          id="figmaUrl"
+          placeholder="https://www.figma.com/file/..."
+          required
+        />
+        <p class="example">Example: https://www.figma.com/file/abc123/YourDesign</p>
+      </div>
+
+      <button type="submit" id="submitBtn">
+        Generate Code
+      </button>
+    </form>
+
+    <div id="status" class="status">
+      <h3>
+        <span class="badge" id="statusBadge">pending</span>
+      </h3>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <p class="phase-message" id="phaseMessage">Initializing...</p>
+      <p class="metadata" id="metadata"></p>
+      <button id="downloadBtn" class="download-btn" style="display: none;">
+        Download Code Bundle
+      </button>
+    </div>
+
+    <div id="error" class="error" style="display: none;"></div>
+  </div>
+
+  <script>
+    const API_URL = 'http://localhost:3001';
+    const form = document.getElementById('convertForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const statusDiv = document.getElementById('status');
+    const statusBadge = document.getElementById('statusBadge');
+    const progressFill = document.getElementById('progressFill');
+    const phaseMessage = document.getElementById('phaseMessage');
+    const metadata = document.getElementById('metadata');
+    const downloadBtn = document.getElementById('downloadBtn');
+    const errorDiv = document.getElementById('error');
+
+    let currentJobId = null;
+    let pollInterval = null;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const figmaUrl = document.getElementById('figmaUrl').value;
+
+      // Reset UI
+      errorDiv.style.display = 'none';
+      statusDiv.classList.add('active');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Processing...';
+      downloadBtn.style.display = 'none';
+      progressFill.style.width = '0%';
+
+      try {
+        // Create job
+        const response = await fetch(`${API_URL}/api/jobs`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ figmaUrl })
+        });
+
+        if (!response.ok) {
+          throw new Error(await response.text());
+        }
+
+        const { jobId } = await response.json();
+        currentJobId = jobId;
+
+        // Start polling for status
+        pollJobStatus(jobId);
+      } catch (error) {
+        showError(error.message);
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Generate Code';
+      }
+    });
+
+    async function pollJobStatus(jobId) {
+      // Clear any existing interval
+      if (pollInterval) clearInterval(pollInterval);
+
+      // Poll every 2 seconds
+      pollInterval = setInterval(async () => {
+        try {
+          const response = await fetch(`${API_URL}/api/jobs/${jobId}`);
+
+          if (!response.ok) {
+            throw new Error('Failed to fetch job status');
+          }
+
+          const job = await response.json();
+          updateStatus(job);
+
+          // Stop polling if job is complete or failed
+          if (job.status === 'complete' || job.status === 'failed') {
+            clearInterval(pollInterval);
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Generate Code';
+          }
+        } catch (error) {
+          showError(error.message);
+          clearInterval(pollInterval);
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Generate Code';
+        }
+      }, 2000);
+    }
+
+    function updateStatus(job) {
+      // Update badge
+      statusBadge.textContent = job.status;
+      statusBadge.className = `badge ${job.status}`;
+
+      // Update progress
+      progressFill.style.width = `${job.progress}%`;
+
+      // Update phase message
+      if (job.currentPhase) {
+        phaseMessage.textContent = job.currentPhase;
+      }
+
+      // Update metadata
+      if (job.result?.metadata) {
+        const meta = job.result.metadata;
+        metadata.innerHTML = `
+          Build: ${meta.buildStatus} |
+          Visual Score: ${(meta.visualScore * 100).toFixed(1)}% |
+          Processing Time: ${(meta.processingTime / 1000).toFixed(1)}s |
+          Files: ${meta.fileCount}
+        `;
+      }
+
+      // Show download button if complete
+      if (job.status === 'complete') {
+        downloadBtn.style.display = 'block';
+        downloadBtn.onclick = () => downloadBundle(job.id);
+        phaseMessage.textContent = '✓ Code generation complete!';
+      }
+
+      // Show error if failed
+      if (job.status === 'failed' && job.error) {
+        showError(job.error);
+      }
+    }
+
+    function downloadBundle(jobId) {
+      window.location.href = `${API_URL}/api/jobs/${jobId}/download`;
+    }
+
+    function showError(message) {
+      errorDiv.textContent = `Error: ${message}`;
+      errorDiv.style.display = 'block';
+      statusDiv.classList.remove('active');
+    }
+  </script>
+</body>
+</html>

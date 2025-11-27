@@ -7,24 +7,28 @@ import OpenAI from 'openai';
 import type { IRDocument, IRNode } from '../types/ir.js';
 import type { GeneratedFile, GeneratedCodeBundle, AgentConfig } from '../types/agent.js';
 import { TailwindGenerator } from './tailwind.js';
+import { PropExtractor } from './prop-extractor.js';
 
 export interface CodeGeneratorOptions {
   useOpenAI?: boolean;
   generateComponents?: boolean;
   generatePages?: boolean;
   componentLibrary?: 'custom' | 'shadcn' | 'radix';
+  extractProps?: boolean; // Week 2: Enable prop extraction
 }
 
 export class CodeGenerator {
   private openai: OpenAI | null = null;
   private config: AgentConfig;
   private tailwind: TailwindGenerator;
+  private propExtractor: PropExtractor;
   private options: CodeGeneratorOptions;
 
   constructor(config: AgentConfig, options?: CodeGeneratorOptions) {
     this.config = config;
-    this.options = options || { useOpenAI: true, generateComponents: true, generatePages: true };
+    this.options = options || { useOpenAI: true, generateComponents: true, generatePages: true, extractProps: true };
     this.tailwind = new TailwindGenerator();
+    this.propExtractor = new PropExtractor();
 
     if (this.options.useOpenAI && config.openaiApiKey) {
       this.openai = new OpenAI({ apiKey: config.openaiApiKey });
@@ -63,10 +67,52 @@ export class CodeGenerator {
    * Generate component from IR using OpenAI or fallback
    */
   async generateFromIR(ir: IRDocument): Promise<GeneratedFile> {
+    let file: GeneratedFile;
+
     if (this.openai && this.options.useOpenAI) {
-      return this.generateWithOpenAI(ir);
+      file = await this.generateWithOpenAI(ir);
+    } else {
+      file = this.generateWithFallback(ir);
     }
-    return this.generateWithFallback(ir);
+
+    // Week 2: Apply prop extraction if enabled
+    if (this.options.extractProps) {
+      file = this.applyPropExtraction(file);
+    }
+
+    return file;
+  }
+
+  /**
+   * Apply prop extraction to generated component
+   * Week 2 feature: Transform hardcoded values into props
+   */
+  private applyPropExtraction(file: GeneratedFile): GeneratedFile {
+    try {
+      // Extract component name from file path
+      const componentName = file.path
+        .split('/')
+        .pop()
+        ?.replace(/\.tsx?$/, '') || 'Component';
+
+      // Extract props from code
+      const extracted = this.propExtractor.extractFromCode(
+        file.content,
+        componentName
+      );
+
+      // Build final content with interface + component
+      const finalContent = `import React from 'react';\nimport { Button, Icon, Navbar, Card, Input } from '@/components/ui';\n\n${extracted.interfaceCode}\n${extracted.updatedCode}`;
+
+      return {
+        ...file,
+        content: finalContent,
+      };
+    } catch (error) {
+      // If prop extraction fails, return original file
+      console.warn('Prop extraction failed:', error);
+      return file;
+    }
   }
 
   /**

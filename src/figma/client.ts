@@ -44,9 +44,10 @@ export class FigmaClient {
     // Extract from URL patterns like:
     // https://www.figma.com/file/ABC123/FileName
     // https://www.figma.com/design/ABC123/FileName
+    // https://www.figma.com/site/ABC123/FileName
     const patterns = [
-      /figma\.com\/(?:file|design)\/([a-zA-Z0-9]+)/,
-      /figma\.com\/(?:file|design)\/([a-zA-Z0-9]+)\/[^?#]+/,
+      /figma\.com\/(?:file|design|site)\/([a-zA-Z0-9]+)/,
+      /figma\.com\/(?:file|design|site)\/([a-zA-Z0-9]+)\/[^?#]+/,
     ];
 
     for (const pattern of patterns) {
