@@ -8,6 +8,7 @@ import type { IRDocument, IRNode } from '../types/ir.js';
 import type { GeneratedFile, GeneratedCodeBundle, AgentConfig } from '../types/agent.js';
 import { TailwindGenerator } from './tailwind.js';
 import { PropExtractor } from './prop-extractor.js';
+import { IconMapper } from './icon-mapper.js';
 
 export interface CodeGeneratorOptions {
   useOpenAI?: boolean;
@@ -22,6 +23,7 @@ export class CodeGenerator {
   private config: AgentConfig;
   private tailwind: TailwindGenerator;
   private propExtractor: PropExtractor;
+  private iconMapper: IconMapper;
   private options: CodeGeneratorOptions;
 
   constructor(config: AgentConfig, options?: CodeGeneratorOptions) {
@@ -29,6 +31,7 @@ export class CodeGenerator {
     this.options = options || { useOpenAI: true, generateComponents: true, generatePages: true, extractProps: true };
     this.tailwind = new TailwindGenerator();
     this.propExtractor = new PropExtractor();
+    this.iconMapper = new IconMapper();
 
     if (this.options.useOpenAI && config.openaiApiKey) {
       this.openai = new OpenAI({ apiKey: config.openaiApiKey });
@@ -67,6 +70,9 @@ export class CodeGenerator {
    * Generate component from IR using OpenAI or fallback
    */
   async generateFromIR(ir: IRDocument): Promise<GeneratedFile> {
+    // Week 2: Map all icons in the IR tree to lucide-react icons
+    this.iconMapper.mapIconsInTree(ir.root);
+
     let file: GeneratedFile;
 
     if (this.openai && this.options.useOpenAI) {
@@ -267,6 +273,11 @@ export default function ${componentName}({ className }: ${componentName}Props) {
       return `${spaces}<img src="${node.imageUrl || '/placeholder.png'}" alt="${node.name}" className="${classes}" />`;
     }
 
+    // Week 2: Handle icon nodes with lucide-react
+    if (node.componentType === 'ICON' && node.iconName) {
+      return `${spaces}<${node.iconName} className="${classes}" />`;
+    }
+
     // Handle self-closing components
     if (this.isSelfClosing(node)) {
       return `${spaces}<${tag} className="${classes}" />`;
@@ -334,6 +345,7 @@ ${spaces}</${tag}>`;
   private collectImports(node: IRNode): string {
     const imports = new Set<string>();
     const customComponents = new Set<string>();
+    const lucideIcons = new Set<string>();
 
     const traverse = (n: IRNode) => {
       if (n.mappedComponent) {
@@ -341,6 +353,10 @@ ${spaces}</${tag}>`;
         if (comp.charAt(0) === comp.charAt(0).toUpperCase() && !['React'].includes(comp)) {
           customComponents.add(comp);
         }
+      }
+      // Week 2: Collect lucide-react icons
+      if (n.componentType === 'ICON' && n.iconName) {
+        lucideIcons.add(n.iconName);
       }
       n.children?.forEach(traverse);
     };
@@ -388,6 +404,12 @@ ${spaces}</${tag}>`;
 
     if (customComponents.has('Navbar')) {
       importLines.push(`import Navbar from '@/components/ui/Navbar';`);
+    }
+
+    // Week 2: Add lucide-react icon imports
+    if (lucideIcons.size > 0) {
+      const iconList = Array.from(lucideIcons).sort().join(', ');
+      importLines.push(`import { ${iconList} } from 'lucide-react';`);
     }
 
     return importLines.join('\n');
@@ -1049,7 +1071,7 @@ module.exports = {
       },
       {
         path: 'postcss.config.js',
-        content: `module.exports = {
+        content: `export default {
   plugins: {
     tailwindcss: {},
     autoprefixer: {},
@@ -1106,6 +1128,7 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
       tailwindcss: '^3.4.0',
       autoprefixer: '^10.4.16',
       postcss: '^8.4.32',
+      'lucide-react': '^0.300.0', // Week 2: Icon library
     };
   }
 

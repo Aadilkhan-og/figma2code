@@ -8,7 +8,7 @@
 import { Command } from 'commander';
 import dotenv from 'dotenv';
 import chalk from 'chalk';
-import ora from 'ora';
+import ora, { type Ora } from 'ora';
 import { promises as fs } from 'fs';
 import path from 'path';
 import type { AgentConfig, AgentEvent } from './types/agent.js';
@@ -246,7 +246,7 @@ program
   });
 
 // Helper functions
-function updateSpinner(spinner: ora.Ora, event: AgentEvent): void {
+function updateSpinner(spinner: Ora, event: AgentEvent): void {
   switch (event.type) {
     case 'figma_extraction_started':
       spinner.text = 'Extracting design from Figma...';

@@ -78,7 +78,7 @@ export class PropExtractor {
     const textMatches = code.matchAll(/>([^<>{}\n]+)</g);
 
     for (const match of textMatches) {
-      const text = match[1].trim();
+      const text = match[1]?.trim();
 
       // Skip empty strings, whitespace, or very short text
       if (!text || text.length < 2) continue;
@@ -117,8 +117,8 @@ export class PropExtractor {
     for (const match of srcMatches) {
       const url = match[1];
 
-      // Skip data URLs (inline images)
-      if (url.startsWith('data:')) continue;
+      // Skip if no URL or data URLs (inline images)
+      if (!url || url.startsWith('data:')) continue;
 
       const propName = `imageUrl${imageIndex > 0 ? imageIndex + 1 : ''}`;
       imageIndex++;
@@ -150,8 +150,8 @@ export class PropExtractor {
     for (const match of customColorMatches) {
       const color = match[1];
 
-      // Skip if we've seen this color before
-      if (seenColors.has(color)) continue;
+      // Skip if no color or if we've seen this color before
+      if (!color || seenColors.has(color)) continue;
       seenColors.add(color);
 
       const propName = `color${colorIndex > 0 ? colorIndex + 1 : ''}`;
@@ -199,23 +199,38 @@ export class PropExtractor {
       if (prop.defaultValue === undefined) continue;
 
       const value = prop.defaultValue;
-      const propRef = `{${prop.name}}`;
+      const propRef = `{props.${prop.name}}`;
 
       if (prop.type === 'string') {
-        // Replace text content: >text< → >{props.text}<
         const stringValue = value as string;
 
         // Escape special regex characters
         const escapedValue = stringValue.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
-        // Replace in JSX text content
-        const textRegex = new RegExp(`>\\s*${escapedValue}\\s*<`, 'g');
-        updatedCode = updatedCode.replace(textRegex, `>${propRef}<`);
+        // Handle colors in className attributes: className="bg-[#eff1ee]" → className={`bg-[${props.color}]`}
+        if (prop.name.startsWith('color')) {
+          // Match className="..." containing the color
+          const classNameRegex = new RegExp(
+            `className="([^"]*)((?:bg|text|border)-\\[)${escapedValue}(\\])([^"]*)"`,
+            'g'
+          );
+          updatedCode = updatedCode.replace(
+            classNameRegex,
+            (match, before, prefix, _, after) => {
+              return `className={\`${before}${prefix}\${props.${prop.name}]}${after}\`}`;
+            }
+          );
+        }
+        // Replace text content: >text< → >{props.text}<
+        else {
+          const textRegex = new RegExp(`>\\s*${escapedValue}\\s*<`, 'g');
+          updatedCode = updatedCode.replace(textRegex, `>${propRef}<`);
 
-        // Replace in attributes: src="url" → src={props.imageUrl}
-        if (prop.name.includes('image')) {
-          const attrRegex = new RegExp(`src=["']${escapedValue}["']`, 'g');
-          updatedCode = updatedCode.replace(attrRegex, `src=${propRef}`);
+          // Replace in attributes: src="url" → src={props.imageUrl}
+          if (prop.name.includes('image')) {
+            const attrRegex = new RegExp(`src=["']${escapedValue}["']`, 'g');
+            updatedCode = updatedCode.replace(attrRegex, `src=${propRef}`);
+          }
         }
       }
     }
@@ -231,13 +246,11 @@ export class PropExtractor {
     componentName: string,
     interfaceName: string
   ): string {
-    // Match: const ComponentName: React.FC = () => {
-    const fcPattern = new RegExp(
-      `(const ${componentName}:\\s*React\\.FC)\\s*=\\s*\\(\\)\\s*=>`,
-      'g'
-    );
+    // Match ANY component: const AnyName: React.FC = () => {
+    // This handles cases where component name differs from filename
+    const fcPattern = /(const\s+\w+:\s*React\.FC)\s*=\s*\(\)\s*=>/g;
 
-    // Replace with: const ComponentName: React.FC<Props> = (props) => {
+    // Replace with: const AnyName: React.FC<Props> = (props) => {
     const updatedCode = code.replace(
       fcPattern,
       `$1<${interfaceName}> = (props)`
@@ -296,19 +309,19 @@ export class PropExtractor {
     const props: PropDefinition[] = [];
 
     // Extract text from node
-    if (node.text) {
+    if (node.textContent) {
       props.push({
-        name: this.generatePropName(node.text),
+        name: this.generatePropName(node.textContent),
         type: 'string',
-        defaultValue: node.text,
+        defaultValue: node.textContent,
         optional: false,
         description: `Text content from Figma`,
       });
     }
 
     // Extract fills (colors)
-    if (node.style?.fills && node.style.fills.length > 0) {
-      const fill = node.style.fills[0];
+    if (node.styles?.fills && node.styles.fills.length > 0) {
+      const fill = node.styles.fills[0];
       if (fill.type === 'SOLID' && fill.color) {
         const { r, g, b, a = 1 } = fill.color;
         const rgba = `rgba(${Math.round(r * 255)}, ${Math.round(g * 255)}, ${Math.round(b * 255)}, ${a})`;

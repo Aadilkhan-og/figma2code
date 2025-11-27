@@ -24,7 +24,8 @@ export class SandboxExecutor {
   constructor(config: AgentConfig, options?: SandboxOptions) {
     this.config = config;
     this.options = options || {};
-    this.workDir = options?.workDir || path.join(process.cwd(), '.sandbox');
+    // Use config.outputDir as the working directory for the sandbox
+    this.workDir = options?.workDir || config.outputDir;
   }
 
   /**

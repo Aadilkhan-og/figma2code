@@ -626,7 +626,6 @@ export class FigmaExtractor {
       FOOTER: 'contentinfo',
       MODAL: 'dialog',
       ALERT: 'alert',
-      TAB: 'tab',
       TABS: 'tablist',
       LIST: 'list',
       LIST_ITEM: 'listitem',

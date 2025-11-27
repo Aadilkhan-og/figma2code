@@ -81,6 +81,7 @@ export class AgentOrchestrator {
    */
   async run(options: AgentOptions): Promise<AgentOutput> {
     const startTime = Date.now();
+    let buildSucceeded = true;
 
     try {
       this.emit('started', { figmaUrl: options.figmaUrl });
@@ -96,12 +97,18 @@ export class AgentOrchestrator {
 
       // Step 4: Build and fix loop
       if (!options.skipBuild) {
-        await this.buildLoop();
+        buildSucceeded = await this.buildLoop();
+        console.log(`📦 Build ${buildSucceeded ? 'succeeded ✅' : 'failed ❌ (code generated but has errors)'}`);
       }
 
       // Step 5: Visual comparison and correction loop
-      if (!options.skipVisualComparison && this.figmaImagePath) {
+      // ONLY run if build succeeded (otherwise dev server can't start)
+      if (!options.skipVisualComparison && this.figmaImagePath && buildSucceeded) {
+        console.log('🎨 Build succeeded, running visual comparison...');
         await this.visualLoop();
+      } else if (!buildSucceeded) {
+        console.log('⚠️  Skipping visual comparison due to build errors');
+        console.log('📝 Generated code saved with errors - manual fixes required');
       }
 
       // Step 6: Generate final output
@@ -210,8 +217,9 @@ export class AgentOrchestrator {
 
   /**
    * Step 4: Build and error fix loop
+   * @returns true if build succeeded, false if errors remain
    */
-  private async buildLoop(): Promise<void> {
+  private async buildLoop(): Promise<boolean> {
     if (!this.bundle) throw new Error('Bundle not available');
 
     // Initialize sandbox
@@ -239,7 +247,8 @@ export class AgentOrchestrator {
           attempt: attempts,
           buildTime: buildResult.buildTime,
         });
-        break;
+        this.state.errors = [];
+        return true; // ✅ Build succeeded!
       }
 
       this.emit('build_failed', {
@@ -268,6 +277,7 @@ export class AgentOrchestrator {
 
         // If no errors were fixed, stop trying
         if (remainingErrors.length === buildResult.errors.length) {
+          console.log(`⚠️  No progress after ${attempts} attempts, stopping error fix loop`);
           break;
         }
       }
@@ -275,6 +285,9 @@ export class AgentOrchestrator {
 
     // Final state update
     this.state.errors = buildResult!.errors;
+    console.log(`❌ Build failed after ${attempts} attempts with ${buildResult!.errors.length} errors`);
+    console.log(`📝 Generated code saved but may have TypeScript errors`);
+    return false; // ❌ Build has errors
   }
 
   /**
