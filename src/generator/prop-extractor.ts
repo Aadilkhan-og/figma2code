@@ -199,7 +199,8 @@ export class PropExtractor {
       if (prop.defaultValue === undefined) continue;
 
       const value = prop.defaultValue;
-      const propRef = `{props.${prop.name}}`;
+      // Use destructured prop name (no "props." prefix)
+      const propRef = `{${prop.name}}`;
 
       if (prop.type === 'string') {
         const stringValue = value as string;
@@ -207,7 +208,7 @@ export class PropExtractor {
         // Escape special regex characters
         const escapedValue = stringValue.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
-        // Handle colors in className attributes: className="bg-[#eff1ee]" → className={`bg-[${props.color}]`}
+        // Handle colors in className attributes: className="bg-[#eff1ee]" → className={`bg-[${color}]`}
         if (prop.name.startsWith('color')) {
           // Match className="..." containing the color
           const classNameRegex = new RegExp(
@@ -217,16 +218,16 @@ export class PropExtractor {
           updatedCode = updatedCode.replace(
             classNameRegex,
             (match, before, prefix, _, after) => {
-              return `className={\`${before}${prefix}\${props.${prop.name}]}${after}\`}`;
+              return `className={\`${before}${prefix}\${${prop.name}]}${after}\`}`;
             }
           );
         }
-        // Replace text content: >text< → >{props.text}<
+        // Replace text content: >text< → >{text}<
         else {
           const textRegex = new RegExp(`>\\s*${escapedValue}\\s*<`, 'g');
           updatedCode = updatedCode.replace(textRegex, `>${propRef}<`);
 
-          // Replace in attributes: src="url" → src={props.imageUrl}
+          // Replace in attributes: src="url" → src={imageUrl}
           if (prop.name.includes('image')) {
             const attrRegex = new RegExp(`src=["']${escapedValue}["']`, 'g');
             updatedCode = updatedCode.replace(attrRegex, `src=${propRef}`);
@@ -239,24 +240,75 @@ export class PropExtractor {
   }
 
   /**
-   * Add props parameter to component function
+   * Add props parameter to component function with destructuring
    */
   private addPropsParameter(
     code: string,
     componentName: string,
     interfaceName: string
   ): string {
-    // Match ANY component: const AnyName: React.FC = () => {
-    // This handles cases where component name differs from filename
-    const fcPattern = /(const\s+\w+:\s*React\.FC)\s*=\s*\(\)\s*=>/g;
+    // Get list of prop names for destructuring
+    const propNames = this.extractPropNamesFromInterface(code, interfaceName);
+    const destructuredParams = propNames.join(', ');
 
-    // Replace with: const AnyName: React.FC<Props> = (props) => {
-    const updatedCode = code.replace(
-      fcPattern,
-      `$1<${interfaceName}> = (props)`
+    // Match: export default function ComponentName({ className }: ComponentNameProps)
+    const functionPattern = new RegExp(
+      `(export default function ${componentName})\\(\\{\\s*className\\s*\\}:\\s*${interfaceName}\\)`,
+      'g'
     );
 
-    return updatedCode;
+    // Replace with: export default function ComponentName({ className, color, textOutcomes }: ComponentNameProps)
+    if (destructuredParams && functionPattern.test(code)) {
+      return code.replace(
+        functionPattern,
+        `$1({ className, ${destructuredParams} }: ${interfaceName})`
+      );
+    }
+
+    // Fallback: Match ANY component: const AnyName: React.FC = () => {
+    const fcPattern = /(const\s+\w+:\s*React\.FC)\s*=\s*\(\)\s*=>/g;
+
+    // Replace with: const AnyName: React.FC<Props> = ({ propName1, propName2 }) => {
+    if (destructuredParams && fcPattern.test(code)) {
+      return code.replace(
+        fcPattern,
+        `$1<${interfaceName}> = ({ ${destructuredParams} }) =>`
+      );
+    }
+
+    // Final fallback: just add the type without destructuring
+    return code.replace(
+      fcPattern,
+      `$1<${interfaceName}> = (props) =>`
+    );
+  }
+
+  /**
+   * Extract prop names from the generated interface
+   */
+  private extractPropNamesFromInterface(code: string, interfaceName: string): string[] {
+    const interfaceRegex = new RegExp(
+      `interface ${interfaceName} \\{([^}]*)\\}`,
+      's'
+    );
+    const match = code.match(interfaceRegex);
+
+    if (!match || !match[1]) return [];
+
+    const propLines = match[1].split('\n')
+      .map(line => line.trim())
+      .filter(line => line && !line.startsWith('//'));
+
+    const propNames: string[] = [];
+    for (const line of propLines) {
+      // Match: propName?: type; or propName: type;
+      const propMatch = line.match(/^(\w+)\??:/);
+      if (propMatch && propMatch[1] !== 'className') {
+        propNames.push(propMatch[1]);
+      }
+    }
+
+    return propNames;
   }
 
   /**

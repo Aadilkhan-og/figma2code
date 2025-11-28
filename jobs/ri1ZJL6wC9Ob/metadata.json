@@ -1,0 +1,613 @@
+{
+  "id": "ri1ZJL6wC9Ob",
+  "source": "plugin",
+  "nodeCount": 24,
+  "fileId": "unknown",
+  "fileName": "Untitled",
+  "nodeName": "30",
+  "nodeId": "1:560",
+  "extractedAt": "2025-11-28T10:16:58.118Z",
+  "status": "build_failed",
+  "createdAt": "2025-11-28T10:16:58.709Z",
+  "updatedAt": "2025-11-28T10:17:27.457Z",
+  "config": {
+    "skipBuild": false,
+    "skipVisual": false
+  },
+  "progress": 75,
+  "currentPhase": "build_failed",
+  "buildErrors": [
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 17,
+      "column": 5,
+      "code": "TS2657",
+      "message": "JSX expressions must have one parent element."
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 18,
+      "column": 109,
+      "code": "TS1005",
+      "message": "'}' expected."
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 18,
+      "column": 110,
+      "code": "TS1381",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 18,
+      "column": 125,
+      "code": "TS1381",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 18,
+      "column": 126,
+      "code": "TS1382",
+      "message": "Unexpected token. Did you mean `{'>'}` or `&gt;`?"
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 20,
+      "column": 35,
+      "code": "TS1005",
+      "message": "'}' expected."
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 20,
+      "column": 36,
+      "code": "TS1381",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 20,
+      "column": 97,
+      "code": "TS1381",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 20,
+      "column": 98,
+      "code": "TS1382",
+      "message": "Unexpected token. Did you mean `{'>'}` or `&gt;`?"
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 20,
+      "column": 115,
+      "code": "TS17002",
+      "message": "Expected corresponding JSX closing tag for 'div'."
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 25,
+      "column": 55,
+      "code": "TS1005",
+      "message": "'}' expected."
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 25,
+      "column": 56,
+      "code": "TS1381",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 25,
+      "column": 107,
+      "code": "TS1381",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 25,
+      "column": 110,
+      "code": "TS1382",
+      "message": "Unexpected token. Did you mean `{'>'}` or `&gt;`?"
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 26,
+      "column": 39,
+      "code": "TS1005",
+      "message": "'}' expected."
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 26,
+      "column": 40,
+      "code": "TS1381",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 26,
+      "column": 100,
+      "code": "TS1381",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 26,
+      "column": 101,
+      "code": "TS1382",
+      "message": "Unexpected token. Did you mean `{'>'}` or `&gt;`?"
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 28,
+      "column": 14,
+      "code": "TS17002",
+      "message": "Expected corresponding JSX closing tag for 'div'."
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 31,
+      "column": 55,
+      "code": "TS1005",
+      "message": "'}' expected."
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 31,
+      "column": 56,
+      "code": "TS1381",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 31,
+      "column": 93,
+      "code": "TS1381",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 31,
+      "column": 96,
+      "code": "TS1382",
+      "message": "Unexpected token. Did you mean `{'>'}` or `&gt;`?"
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 32,
+      "column": 39,
+      "code": "TS1005",
+      "message": "'}' expected."
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 32,
+      "column": 40,
+      "code": "TS1381",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 32,
+      "column": 99,
+      "code": "TS1381",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 32,
+      "column": 100,
+      "code": "TS1382",
+      "message": "Unexpected token. Did you mean `{'>'}` or `&gt;`?"
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 33,
+      "column": 9,
+      "code": "TS17002",
+      "message": "Expected corresponding JSX closing tag for 'div'."
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 36,
+      "column": 38,
+      "code": "TS1005",
+      "message": "'}' expected."
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 36,
+      "column": 39,
+      "code": "TS1381",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 36,
+      "column": 72,
+      "code": "TS1381",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 36,
+      "column": 75,
+      "code": "TS1382",
+      "message": "Unexpected token. Did you mean `{'>'}` or `&gt;`?"
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 37,
+      "column": 39,
+      "code": "TS1005",
+      "message": "'}' expected."
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 37,
+      "column": 40,
+      "code": "TS1381",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 37,
+      "column": 99,
+      "code": "TS1381",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 37,
+      "column": 100,
+      "code": "TS1382",
+      "message": "Unexpected token. Did you mean `{'>'}` or `&gt;`?"
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 38,
+      "column": 12,
+      "code": "TS17002",
+      "message": "Expected corresponding JSX closing tag for 'div'."
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 39,
+      "column": 7,
+      "code": "TS1005",
+      "message": "')' expected."
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 40,
+      "column": 5,
+      "code": "TS1109",
+      "message": "Expression expected."
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 41,
+      "column": 5,
+      "code": "TS2657",
+      "message": "JSX expressions must have one parent element."
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 43,
+      "column": 38,
+      "code": "TS1005",
+      "message": "'}' expected."
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 43,
+      "column": 39,
+      "code": "TS1381",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 43,
+      "column": 72,
+      "code": "TS1381",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 43,
+      "column": 75,
+      "code": "TS1382",
+      "message": "Unexpected token. Did you mean `{'>'}` or `&gt;`?"
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 44,
+      "column": 39,
+      "code": "TS1005",
+      "message": "'}' expected."
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 44,
+      "column": 40,
+      "code": "TS1381",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 44,
+      "column": 99,
+      "code": "TS1381",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 44,
+      "column": 100,
+      "code": "TS1382",
+      "message": "Unexpected token. Did you mean `{'>'}` or `&gt;`?"
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 45,
+      "column": 24,
+      "code": "TS17002",
+      "message": "Expected corresponding JSX closing tag for 'div'."
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 48,
+      "column": 55,
+      "code": "TS1005",
+      "message": "'}' expected."
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 48,
+      "column": 56,
+      "code": "TS1381",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 48,
+      "column": 107,
+      "code": "TS1381",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 48,
+      "column": 110,
+      "code": "TS1382",
+      "message": "Unexpected token. Did you mean `{'>'}` or `&gt;`?"
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 49,
+      "column": 39,
+      "code": "TS1005",
+      "message": "'}' expected."
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 49,
+      "column": 40,
+      "code": "TS1381",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 49,
+      "column": 100,
+      "code": "TS1381",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 49,
+      "column": 101,
+      "code": "TS1382",
+      "message": "Unexpected token. Did you mean `{'>'}` or `&gt;`?"
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 51,
+      "column": 13,
+      "code": "TS17002",
+      "message": "Expected corresponding JSX closing tag for 'div'."
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 52,
+      "column": 7,
+      "code": "TS1128",
+      "message": "Declaration or statement expected."
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 54,
+      "column": 55,
+      "code": "TS1005",
+      "message": "'}' expected."
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 54,
+      "column": 56,
+      "code": "TS1381",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 54,
+      "column": 93,
+      "code": "TS1381",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 54,
+      "column": 96,
+      "code": "TS1382",
+      "message": "Unexpected token. Did you mean `{'>'}` or `&gt;`?"
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 55,
+      "column": 39,
+      "code": "TS1005",
+      "message": "'}' expected."
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 55,
+      "column": 40,
+      "code": "TS1381",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 55,
+      "column": 99,
+      "code": "TS1381",
+      "message": "Unexpected token. Did you mean `{'}'}` or `&rbrace;`?"
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 55,
+      "column": 100,
+      "code": "TS1382",
+      "message": "Unexpected token. Did you mean `{'>'}` or `&gt;`?"
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 56,
+      "column": 21,
+      "code": "TS17002",
+      "message": "Expected corresponding JSX closing tag for 'div'."
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 57,
+      "column": 7,
+      "code": "TS1128",
+      "message": "Declaration or statement expected."
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 58,
+      "column": 5,
+      "code": "TS1109",
+      "message": "Expression expected."
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 59,
+      "column": 3,
+      "code": "TS1109",
+      "message": "Expression expected."
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 60,
+      "column": 1,
+      "code": "TS1109",
+      "message": "Expression expected."
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 61,
+      "column": 5,
+      "code": "TS1109",
+      "message": "Expression expected."
+    },
+    {
+      "type": "typescript",
+      "file": "src/pages/Untitled.tsx",
+      "line": 62,
+      "column": 3,
+      "code": "TS1109",
+      "message": "Expression expected."
+    }
+  ]
+}

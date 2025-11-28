@@ -143,6 +143,12 @@ const ICON_NAME_MAPPINGS: Record<string, string> = {
   'maximize': 'Maximize2',
   'minimize': 'Minimize2',
   'fullscreen': 'Maximize2',
+
+  // Generic fallbacks for unnamed/vector icons
+  'vector': 'Box',
+  'shape': 'Box',
+  'icon': 'Circle',
+  'graphic': 'Image',
 };
 
 /**
@@ -178,8 +184,8 @@ export class IconMapper {
       return iconName;
     }
 
-    // Fall back to a generic icon
-    return 'Circle';
+    // Fall back to a generic icon (use Box for unnamed/vector icons)
+    return 'Box';
   }
 
   /**

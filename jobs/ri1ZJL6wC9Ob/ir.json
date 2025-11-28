@@ -1,0 +1,935 @@
+{
+  "version": "1.0.0",
+  "figmaFileId": "unknown",
+  "figmaFileName": "Untitled",
+  "figmaNodeId": "1:560",
+  "extractedAt": "2025-11-28T10:16:55.660Z",
+  "canvas": {
+    "width": 1920,
+    "height": 1281,
+    "backgroundColor": "#ffffff"
+  },
+  "root": {
+    "id": "1:560",
+    "name": "30",
+    "type": "container",
+    "componentType": "CONTAINER",
+    "figmaNodeId": "1:560",
+    "boundingBox": {
+      "x": 0,
+      "y": 5532,
+      "width": 1920,
+      "height": 1281,
+      "rotation": 0
+    },
+    "styles": {
+      "backgroundColor": "#f5f6f3",
+      "border": {
+        "width": 0,
+        "style": "none",
+        "radius": {
+          "topLeft": 0,
+          "topRight": 0,
+          "bottomRight": 0,
+          "bottomLeft": 0
+        }
+      },
+      "opacity": 1
+    },
+    "constraints": {
+      "horizontal": "MIN",
+      "vertical": "MIN"
+    },
+    "autoLayout": {
+      "mode": "VERTICAL",
+      "primaryAxisAlign": "MIN",
+      "counterAxisAlign": "MIN",
+      "gap": 100,
+      "padding": {
+        "top": 150,
+        "right": 160,
+        "bottom": 150,
+        "left": 160
+      },
+      "wrap": false
+    },
+    "children": [
+      {
+        "id": "1:561",
+        "name": "Frame 141",
+        "type": "container",
+        "componentType": "CONTAINER",
+        "figmaNodeId": "1:561",
+        "boundingBox": {
+          "x": 160,
+          "y": 150,
+          "width": 1337,
+          "height": 70,
+          "rotation": 0
+        },
+        "styles": {
+          "border": {
+            "width": 0,
+            "style": "none",
+            "radius": {
+              "topLeft": 0,
+              "topRight": 0,
+              "bottomRight": 0,
+              "bottomLeft": 0
+            }
+          },
+          "opacity": 1
+        },
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "MIN"
+        },
+        "autoLayout": {
+          "mode": "VERTICAL",
+          "primaryAxisAlign": "MIN",
+          "counterAxisAlign": "MIN",
+          "gap": 38,
+          "padding": {
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "wrap": false
+        },
+        "children": [
+          {
+            "id": "1:562",
+            "name": "Outcomes",
+            "type": "text",
+            "componentType": "TEXT",
+            "figmaNodeId": "1:562",
+            "boundingBox": {
+              "x": 0,
+              "y": 0,
+              "width": 1337,
+              "height": 70,
+              "rotation": 0
+            },
+            "styles": {
+              "backgroundColor": "#121212",
+              "opacity": 1,
+              "typography": {
+                "fontFamily": "Orlean",
+                "fontSize": 100,
+                "fontWeight": 500,
+                "lineHeight": 107,
+                "letterSpacing": 0
+              },
+              "textColor": "#121212",
+              "shadows": []
+            },
+            "constraints": {
+              "horizontal": "MIN",
+              "vertical": "MIN"
+            },
+            "textContent": "Outcomes"
+          }
+        ]
+      },
+      {
+        "id": "1:563",
+        "name": "Frame 5118",
+        "type": "container",
+        "componentType": "CONTAINER",
+        "figmaNodeId": "1:563",
+        "boundingBox": {
+          "x": 160,
+          "y": 320,
+          "width": 1601,
+          "height": 811,
+          "rotation": 0
+        },
+        "styles": {
+          "border": {
+            "width": 0,
+            "style": "none",
+            "radius": {
+              "topLeft": 0,
+              "topRight": 0,
+              "bottomRight": 0,
+              "bottomLeft": 0
+            }
+          },
+          "opacity": 1
+        },
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "MIN"
+        },
+        "autoLayout": {
+          "mode": "VERTICAL",
+          "primaryAxisAlign": "MIN",
+          "counterAxisAlign": "MIN",
+          "gap": 15,
+          "padding": {
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          },
+          "wrap": false
+        },
+        "children": [
+          {
+            "id": "1:564",
+            "name": "Frame 48",
+            "type": "container",
+            "componentType": "CONTAINER",
+            "figmaNodeId": "1:564",
+            "boundingBox": {
+              "x": 0,
+              "y": 0,
+              "width": 1601,
+              "height": 398,
+              "rotation": 0
+            },
+            "styles": {
+              "border": {
+                "width": 0,
+                "style": "none",
+                "radius": {
+                  "topLeft": 0,
+                  "topRight": 0,
+                  "bottomRight": 0,
+                  "bottomLeft": 0
+                }
+              },
+              "opacity": 1
+            },
+            "constraints": {
+              "horizontal": "MIN",
+              "vertical": "MIN"
+            },
+            "autoLayout": {
+              "mode": "HORIZONTAL",
+              "primaryAxisAlign": "MIN",
+              "counterAxisAlign": "CENTER",
+              "gap": 15,
+              "padding": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              },
+              "wrap": false
+            },
+            "children": [
+              {
+                "id": "1:565",
+                "name": "Frame 9",
+                "type": "container",
+                "componentType": "CONTAINER",
+                "figmaNodeId": "1:565",
+                "boundingBox": {
+                  "x": 0,
+                  "y": 0,
+                  "width": 523.6666870117188,
+                  "height": 398,
+                  "rotation": 0
+                },
+                "styles": {
+                  "backgroundColor": "#ffffff",
+                  "border": {
+                    "width": 0,
+                    "style": "none",
+                    "radius": {
+                      "topLeft": 20,
+                      "topRight": 20,
+                      "bottomRight": 20,
+                      "bottomLeft": 20
+                    }
+                  },
+                  "opacity": 1
+                },
+                "constraints": {
+                  "horizontal": "MIN",
+                  "vertical": "MIN"
+                },
+                "autoLayout": {
+                  "mode": "VERTICAL",
+                  "primaryAxisAlign": "SPACE_BETWEEN",
+                  "counterAxisAlign": "MIN",
+                  "gap": 10,
+                  "padding": {
+                    "top": 40,
+                    "right": 40,
+                    "bottom": 40,
+                    "left": 40
+                  },
+                  "wrap": false
+                },
+                "children": [
+                  {
+                    "id": "1:566",
+                    "name": "Vector",
+                    "type": "vector",
+                    "componentType": "ICON",
+                    "figmaNodeId": "1:566",
+                    "boundingBox": {
+                      "x": 40,
+                      "y": 40,
+                      "width": 56.250038146972656,
+                      "height": 87.5,
+                      "rotation": 0
+                    },
+                    "styles": {
+                      "border": {
+                        "width": 6,
+                        "style": "solid",
+                        "color": "#111111",
+                        "radius": {
+                          "topLeft": 0,
+                          "topRight": 0,
+                          "bottomRight": 0,
+                          "bottomLeft": 0
+                        }
+                      },
+                      "opacity": 1
+                    },
+                    "constraints": {
+                      "horizontal": "MIN",
+                      "vertical": "MIN"
+                    }
+                  },
+                  {
+                    "id": "1:567",
+                    "name": "From effort-led to intelligence-led operations.",
+                    "type": "text",
+                    "componentType": "TEXT",
+                    "figmaNodeId": "1:567",
+                    "boundingBox": {
+                      "x": 40,
+                      "y": 245,
+                      "width": 310,
+                      "height": 113,
+                      "rotation": 0
+                    },
+                    "styles": {
+                      "backgroundColor": "#111111",
+                      "opacity": 1,
+                      "typography": {
+                        "fontFamily": "Orlean",
+                        "fontSize": 38,
+                        "fontWeight": 500,
+                        "lineHeight": 43,
+                        "letterSpacing": 0
+                      },
+                      "textColor": "#111111"
+                    },
+                    "constraints": {
+                      "horizontal": "MIN",
+                      "vertical": "MIN"
+                    },
+                    "textContent": "From effort-led to\nintelligence-led\noperations."
+                  }
+                ]
+              },
+              {
+                "id": "1:568",
+                "name": "Frame 46",
+                "type": "container",
+                "componentType": "CONTAINER",
+                "figmaNodeId": "1:568",
+                "boundingBox": {
+                  "x": 538.6666870117188,
+                  "y": 0,
+                  "width": 523.6666259765625,
+                  "height": 398,
+                  "rotation": 0
+                },
+                "styles": {
+                  "backgroundColor": "#ffffff",
+                  "border": {
+                    "width": 0,
+                    "style": "none",
+                    "radius": {
+                      "topLeft": 20,
+                      "topRight": 20,
+                      "bottomRight": 20,
+                      "bottomLeft": 20
+                    }
+                  },
+                  "opacity": 1
+                },
+                "constraints": {
+                  "horizontal": "MIN",
+                  "vertical": "MIN"
+                },
+                "autoLayout": {
+                  "mode": "VERTICAL",
+                  "primaryAxisAlign": "SPACE_BETWEEN",
+                  "counterAxisAlign": "MIN",
+                  "gap": 10,
+                  "padding": {
+                    "top": 40,
+                    "right": 40,
+                    "bottom": 40,
+                    "left": 40
+                  },
+                  "wrap": false
+                },
+                "children": [
+                  {
+                    "id": "1:569",
+                    "name": "Vector",
+                    "type": "vector",
+                    "componentType": "ICON",
+                    "figmaNodeId": "1:569",
+                    "boundingBox": {
+                      "x": 40,
+                      "y": 40,
+                      "width": 76.5,
+                      "height": 76.5,
+                      "rotation": 0
+                    },
+                    "styles": {
+                      "border": {
+                        "width": 6,
+                        "style": "solid",
+                        "color": "#111111",
+                        "radius": {
+                          "topLeft": 0,
+                          "topRight": 0,
+                          "bottomRight": 0,
+                          "bottomLeft": 0
+                        }
+                      },
+                      "opacity": 1
+                    },
+                    "constraints": {
+                      "horizontal": "MIN",
+                      "vertical": "MIN"
+                    }
+                  },
+                  {
+                    "id": "1:570",
+                    "name": "3–5x faster decision cycles",
+                    "type": "text",
+                    "componentType": "TEXT",
+                    "figmaNodeId": "1:570",
+                    "boundingBox": {
+                      "x": 40,
+                      "y": 288,
+                      "width": 339,
+                      "height": 70,
+                      "rotation": 0
+                    },
+                    "styles": {
+                      "backgroundColor": "#111111",
+                      "opacity": 1,
+                      "typography": {
+                        "fontFamily": "Orlean",
+                        "fontSize": 38,
+                        "fontWeight": 500,
+                        "lineHeight": 43,
+                        "letterSpacing": 0
+                      },
+                      "textColor": "#111111"
+                    },
+                    "constraints": {
+                      "horizontal": "MIN",
+                      "vertical": "MIN"
+                    },
+                    "textContent": "3–5x faster decision\ncycles"
+                  }
+                ]
+              },
+              {
+                "id": "1:571",
+                "name": "Frame 47",
+                "type": "container",
+                "componentType": "CONTAINER",
+                "figmaNodeId": "1:571",
+                "boundingBox": {
+                  "x": 1077.333251953125,
+                  "y": 0,
+                  "width": 523.6666259765625,
+                  "height": 398,
+                  "rotation": 0
+                },
+                "styles": {
+                  "backgroundColor": "#ffffff",
+                  "border": {
+                    "width": 0,
+                    "style": "none",
+                    "radius": {
+                      "topLeft": 20,
+                      "topRight": 20,
+                      "bottomRight": 20,
+                      "bottomLeft": 20
+                    }
+                  },
+                  "opacity": 1
+                },
+                "constraints": {
+                  "horizontal": "MIN",
+                  "vertical": "MIN"
+                },
+                "autoLayout": {
+                  "mode": "VERTICAL",
+                  "primaryAxisAlign": "SPACE_BETWEEN",
+                  "counterAxisAlign": "MIN",
+                  "gap": 10,
+                  "padding": {
+                    "top": 40,
+                    "right": 40,
+                    "bottom": 40,
+                    "left": 40
+                  },
+                  "wrap": false
+                },
+                "children": [
+                  {
+                    "id": "1:572",
+                    "name": "Vector",
+                    "type": "vector",
+                    "componentType": "ICON",
+                    "figmaNodeId": "1:572",
+                    "boundingBox": {
+                      "x": 40,
+                      "y": 40,
+                      "width": 87,
+                      "height": 87,
+                      "rotation": 0
+                    },
+                    "styles": {
+                      "backgroundColor": "#111111",
+                      "border": {
+                        "width": 0,
+                        "style": "none",
+                        "radius": {
+                          "topLeft": 0,
+                          "topRight": 0,
+                          "bottomRight": 0,
+                          "bottomLeft": 0
+                        }
+                      },
+                      "opacity": 1
+                    },
+                    "constraints": {
+                      "horizontal": "MIN",
+                      "vertical": "MIN"
+                    }
+                  },
+                  {
+                    "id": "1:573",
+                    "name": "40–60% ops cost reduction",
+                    "type": "text",
+                    "componentType": "TEXT",
+                    "figmaNodeId": "1:573",
+                    "boundingBox": {
+                      "x": 40,
+                      "y": 288,
+                      "width": 313,
+                      "height": 70,
+                      "rotation": 0
+                    },
+                    "styles": {
+                      "backgroundColor": "#111111",
+                      "opacity": 1,
+                      "typography": {
+                        "fontFamily": "Orlean",
+                        "fontSize": 38,
+                        "fontWeight": 500,
+                        "lineHeight": 43,
+                        "letterSpacing": 0
+                      },
+                      "textColor": "#111111"
+                    },
+                    "constraints": {
+                      "horizontal": "MIN",
+                      "vertical": "MIN"
+                    },
+                    "textContent": "40–60% ops cost\nreduction"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "1:574",
+            "name": "Frame 142",
+            "type": "container",
+            "componentType": "CONTAINER",
+            "figmaNodeId": "1:574",
+            "boundingBox": {
+              "x": 0,
+              "y": 413,
+              "width": 1601,
+              "height": 398,
+              "rotation": 0
+            },
+            "styles": {
+              "border": {
+                "width": 0,
+                "style": "none",
+                "radius": {
+                  "topLeft": 0,
+                  "topRight": 0,
+                  "bottomRight": 0,
+                  "bottomLeft": 0
+                }
+              },
+              "opacity": 1
+            },
+            "constraints": {
+              "horizontal": "MIN",
+              "vertical": "MIN"
+            },
+            "autoLayout": {
+              "mode": "HORIZONTAL",
+              "primaryAxisAlign": "MIN",
+              "counterAxisAlign": "CENTER",
+              "gap": 15,
+              "padding": {
+                "top": 0,
+                "right": 0,
+                "bottom": 0,
+                "left": 0
+              },
+              "wrap": false
+            },
+            "children": [
+              {
+                "id": "1:575",
+                "name": "Frame 47",
+                "type": "container",
+                "componentType": "CONTAINER",
+                "figmaNodeId": "1:575",
+                "boundingBox": {
+                  "x": 0.00006103515625,
+                  "y": 0,
+                  "width": 523.6666259765625,
+                  "height": 398,
+                  "rotation": 0
+                },
+                "styles": {
+                  "backgroundColor": "#ffffff",
+                  "border": {
+                    "width": 0,
+                    "style": "none",
+                    "radius": {
+                      "topLeft": 20,
+                      "topRight": 20,
+                      "bottomRight": 20,
+                      "bottomLeft": 20
+                    }
+                  },
+                  "opacity": 1
+                },
+                "constraints": {
+                  "horizontal": "MIN",
+                  "vertical": "MIN"
+                },
+                "autoLayout": {
+                  "mode": "VERTICAL",
+                  "primaryAxisAlign": "SPACE_BETWEEN",
+                  "counterAxisAlign": "MIN",
+                  "gap": 10,
+                  "padding": {
+                    "top": 40,
+                    "right": 40,
+                    "bottom": 40,
+                    "left": 40
+                  },
+                  "wrap": false
+                },
+                "children": [
+                  {
+                    "id": "1:576",
+                    "name": "Vector",
+                    "type": "vector",
+                    "componentType": "ICON",
+                    "figmaNodeId": "1:576",
+                    "boundingBox": {
+                      "x": 40,
+                      "y": 40,
+                      "width": 87,
+                      "height": 87,
+                      "rotation": 0
+                    },
+                    "styles": {
+                      "backgroundColor": "#111111",
+                      "border": {
+                        "width": 0,
+                        "style": "none",
+                        "radius": {
+                          "topLeft": 0,
+                          "topRight": 0,
+                          "bottomRight": 0,
+                          "bottomLeft": 0
+                        }
+                      },
+                      "opacity": 1
+                    },
+                    "constraints": {
+                      "horizontal": "MIN",
+                      "vertical": "MIN"
+                    }
+                  },
+                  {
+                    "id": "1:577",
+                    "name": "Predictive control vs reactive firefighting",
+                    "type": "text",
+                    "componentType": "TEXT",
+                    "figmaNodeId": "1:577",
+                    "boundingBox": {
+                      "x": 40,
+                      "y": 288,
+                      "width": 356,
+                      "height": 70,
+                      "rotation": 0
+                    },
+                    "styles": {
+                      "backgroundColor": "#111111",
+                      "opacity": 1,
+                      "typography": {
+                        "fontFamily": "Orlean",
+                        "fontSize": 38,
+                        "fontWeight": 500,
+                        "lineHeight": 43,
+                        "letterSpacing": 0
+                      },
+                      "textColor": "#111111"
+                    },
+                    "constraints": {
+                      "horizontal": "MIN",
+                      "vertical": "MIN"
+                    },
+                    "textContent": "Predictive control vs\nreactive firefighting"
+                  }
+                ]
+              },
+              {
+                "id": "1:578",
+                "name": "Frame 9",
+                "type": "container",
+                "componentType": "CONTAINER",
+                "figmaNodeId": "1:578",
+                "boundingBox": {
+                  "x": 538.6666259765625,
+                  "y": 0,
+                  "width": 523.6666870117188,
+                  "height": 398,
+                  "rotation": 0
+                },
+                "styles": {
+                  "backgroundColor": "#ffffff",
+                  "border": {
+                    "width": 0,
+                    "style": "none",
+                    "radius": {
+                      "topLeft": 20,
+                      "topRight": 20,
+                      "bottomRight": 20,
+                      "bottomLeft": 20
+                    }
+                  },
+                  "opacity": 1
+                },
+                "constraints": {
+                  "horizontal": "MIN",
+                  "vertical": "MIN"
+                },
+                "autoLayout": {
+                  "mode": "VERTICAL",
+                  "primaryAxisAlign": "SPACE_BETWEEN",
+                  "counterAxisAlign": "MIN",
+                  "gap": 10,
+                  "padding": {
+                    "top": 40,
+                    "right": 40,
+                    "bottom": 40,
+                    "left": 40
+                  },
+                  "wrap": false
+                },
+                "children": [
+                  {
+                    "id": "1:579",
+                    "name": "Vector",
+                    "type": "vector",
+                    "componentType": "ICON",
+                    "figmaNodeId": "1:579",
+                    "boundingBox": {
+                      "x": 40,
+                      "y": 40,
+                      "width": 56.250038146972656,
+                      "height": 87.5,
+                      "rotation": 0
+                    },
+                    "styles": {
+                      "border": {
+                        "width": 6,
+                        "style": "solid",
+                        "color": "#111111",
+                        "radius": {
+                          "topLeft": 0,
+                          "topRight": 0,
+                          "bottomRight": 0,
+                          "bottomLeft": 0
+                        }
+                      },
+                      "opacity": 1
+                    },
+                    "constraints": {
+                      "horizontal": "MIN",
+                      "vertical": "MIN"
+                    }
+                  },
+                  {
+                    "id": "1:580",
+                    "name": "Human teams focus on strategy, not repetition",
+                    "type": "text",
+                    "componentType": "TEXT",
+                    "figmaNodeId": "1:580",
+                    "boundingBox": {
+                      "x": 40,
+                      "y": 245,
+                      "width": 341,
+                      "height": 113,
+                      "rotation": 0
+                    },
+                    "styles": {
+                      "backgroundColor": "#111111",
+                      "opacity": 1,
+                      "typography": {
+                        "fontFamily": "Orlean",
+                        "fontSize": 38,
+                        "fontWeight": 500,
+                        "lineHeight": 43,
+                        "letterSpacing": 0
+                      },
+                      "textColor": "#111111"
+                    },
+                    "constraints": {
+                      "horizontal": "MIN",
+                      "vertical": "MIN"
+                    },
+                    "textContent": "Human teams focus\non strategy, not\nrepetition"
+                  }
+                ]
+              },
+              {
+                "id": "1:581",
+                "name": "Frame 46",
+                "type": "container",
+                "componentType": "CONTAINER",
+                "figmaNodeId": "1:581",
+                "boundingBox": {
+                  "x": 1077.333251953125,
+                  "y": 0,
+                  "width": 523.6666259765625,
+                  "height": 398,
+                  "rotation": 0
+                },
+                "styles": {
+                  "backgroundColor": "#ffffff",
+                  "border": {
+                    "width": 0,
+                    "style": "none",
+                    "radius": {
+                      "topLeft": 20,
+                      "topRight": 20,
+                      "bottomRight": 20,
+                      "bottomLeft": 20
+                    }
+                  },
+                  "opacity": 1
+                },
+                "constraints": {
+                  "horizontal": "MIN",
+                  "vertical": "MIN"
+                },
+                "autoLayout": {
+                  "mode": "VERTICAL",
+                  "primaryAxisAlign": "SPACE_BETWEEN",
+                  "counterAxisAlign": "MIN",
+                  "gap": 10,
+                  "padding": {
+                    "top": 40,
+                    "right": 40,
+                    "bottom": 40,
+                    "left": 40
+                  },
+                  "wrap": false
+                },
+                "children": [
+                  {
+                    "id": "1:582",
+                    "name": "Vector",
+                    "type": "vector",
+                    "componentType": "ICON",
+                    "figmaNodeId": "1:582",
+                    "boundingBox": {
+                      "x": 40,
+                      "y": 40,
+                      "width": 76.5,
+                      "height": 76.5,
+                      "rotation": 0
+                    },
+                    "styles": {
+                      "border": {
+                        "width": 6,
+                        "style": "solid",
+                        "color": "#111111",
+                        "radius": {
+                          "topLeft": 0,
+                          "topRight": 0,
+                          "bottomRight": 0,
+                          "bottomLeft": 0
+                        }
+                      },
+                      "opacity": 1
+                    },
+                    "constraints": {
+                      "horizontal": "MIN",
+                      "vertical": "MIN"
+                    }
+                  },
+                  {
+                    "id": "1:583",
+                    "name": "AI evolution = business evolution",
+                    "type": "text",
+                    "componentType": "TEXT",
+                    "figmaNodeId": "1:583",
+                    "boundingBox": {
+                      "x": 40,
+                      "y": 288,
+                      "width": 318,
+                      "height": 70,
+                      "rotation": 0
+                    },
+                    "styles": {
+                      "backgroundColor": "#111111",
+                      "opacity": 1,
+                      "typography": {
+                        "fontFamily": "Orlean",
+                        "fontSize": 38,
+                        "fontWeight": 500,
+                        "lineHeight": 43,
+                        "letterSpacing": 0
+                      },
+                      "textColor": "#111111"
+                    },
+                    "constraints": {
+                      "horizontal": "MIN",
+                      "vertical": "MIN"
+                    },
+                    "textContent": "AI evolution =\nbusiness evolution"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

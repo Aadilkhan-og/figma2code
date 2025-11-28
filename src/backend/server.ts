@@ -12,6 +12,7 @@ import { generateFromFigmaLink, healthCheck } from '../api/index.js';
 import type { ProgressEvent } from '../api/index.js';
 import { JobStorage } from './job-storage.js';
 import type { Job } from './job-storage.js';
+import pluginRoutes from '../api/plugin-routes.js';
 
 export interface ServerConfig {
   port: number;
@@ -30,7 +31,7 @@ export class PostDevServer {
 
   constructor(config: Partial<ServerConfig> = {}) {
     this.config = {
-      port: config.port || 3001,
+      port: config.port || 3000,
       host: config.host || '0.0.0.0',
       jobsDir: config.jobsDir,
       maxConcurrentJobs: config.maxConcurrentJobs || 3,
@@ -49,17 +50,34 @@ export class PostDevServer {
    * Setup Express middleware
    */
   private setupMiddleware(): void {
-    // CORS
+    // CORS - Allow Figma plugin requests
     this.app.use(
       cors({
-        origin: this.config.corsOrigins,
+        origin: (origin, callback) => {
+          // Allow requests from Figma or localhost
+          const allowedOrigins = [
+            'http://localhost:3000',
+            'https://localhost:3000',
+            'https://www.figma.com',
+            'https://figma.com'
+          ];
+
+          // Allow requests with no origin (like Postman) or from allowed origins
+          if (!origin || allowedOrigins.some(allowed => origin.startsWith(allowed))) {
+            callback(null, true);
+          } else {
+            callback(null, true); // Allow all origins for development
+          }
+        },
         credentials: true,
+        methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+        allowedHeaders: ['Content-Type', 'Authorization']
       })
     );
 
-    // Body parsing
-    this.app.use(express.json());
-    this.app.use(express.urlencoded({ extended: true }));
+    // Body parsing with increased limit for screenshots and large IR data
+    this.app.use(express.json({ limit: '50mb' }));
+    this.app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 
     // Serve static files from public directory
     const publicDir = path.join(process.cwd(), 'public');
@@ -250,6 +268,9 @@ export class PostDevServer {
         });
       }
     });
+
+    // Plugin routes
+    this.app.use('/api/plugin', pluginRoutes);
 
     // 404 handler
     this.app.use((req, res) => {
@@ -457,7 +478,7 @@ export class PostDevServer {
  * Start server from CLI
  */
 const server = new PostDevServer({
-  port: parseInt(process.env.PORT || '3001'),
+  port: parseInt(process.env.PORT || '3000'),
 });
 
 server.start().catch((error) => {

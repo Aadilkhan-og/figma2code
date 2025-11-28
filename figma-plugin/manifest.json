@@ -1,0 +1,16 @@
+{
+  "name": "Figma2Code Extractor",
+  "id": "1234567890",
+  "api": "1.0.0",
+  "main": "dist/code.js",
+  "ui": "dist/ui.html",
+  "documentAccess": "dynamic-page",
+  "networkAccess": {
+    "allowedDomains": [
+      "http://localhost:3000",
+      "https://localhost:3000"
+    ],
+    "reasoning": "Send extracted design data to local backend server for code generation"
+  },
+  "editorType": ["figma"]
+}

@@ -107,8 +107,24 @@ export class CodeGenerator {
         componentName
       );
 
-      // Build final content with interface + component
-      const finalContent = `import React from 'react';\nimport { Button, Icon, Navbar, Card, Input } from '@/components/ui';\n\n${extracted.interfaceCode}\n${extracted.updatedCode}`;
+      // Build final content - updatedCode already has imports from original generation
+      // Just prepend the interface before the component
+      const lines = extracted.updatedCode.split('\n');
+      const importEndIndex = lines.findIndex(line =>
+        line.startsWith('interface ') || line.startsWith('export ')
+      );
+
+      if (importEndIndex > 0) {
+        // Insert interface after imports
+        lines.splice(importEndIndex, 0, extracted.interfaceCode);
+        return {
+          ...file,
+          content: lines.join('\n'),
+        };
+      }
+
+      // Fallback: prepend interface if no clear import section found
+      const finalContent = `${extracted.interfaceCode}\n${extracted.updatedCode}`;
 
       return {
         ...file,

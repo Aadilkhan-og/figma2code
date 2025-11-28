@@ -1,0 +1,22 @@
+{
+  "name": "figma2code-plugin",
+  "version": "1.0.0",
+  "description": "Figma plugin to extract design data without REST API rate limits",
+  "main": "dist/code.js",
+  "scripts": {
+    "build": "tsc && npm run copy-ui",
+    "copy-ui": "copyfiles -u 1 src/ui.html dist",
+    "watch": "concurrently \"tsc --watch\" \"npm run copy-ui -- --watch\"",
+    "dev": "npm run build && npm run watch"
+  },
+  "keywords": ["figma", "plugin", "extraction"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@figma/plugin-typings": "^1.99.0",
+    "@types/node": "^20.10.0",
+    "concurrently": "^8.2.2",
+    "copyfiles": "^2.4.1",
+    "typescript": "^5.3.3"
+  }
+}
